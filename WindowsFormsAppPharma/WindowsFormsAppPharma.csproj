@@ -71,5 +71,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PharmaLog.BLL\PharmaLog.BLL.csproj">
+      <Project>{5e868293-80b2-4384-bb9f-4c474fe4a42f}</Project>
+      <Name>PharmaLog.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PharmaLog.BO\PharmaLog.BO.csproj">
+      <Project>{ca4e3c64-77f5-4390-9f36-53342e8e6d57}</Project>
+      <Name>PharmaLog.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

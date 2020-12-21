@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PharmaLog.BO
+namespace PharmaLog.DAL
 {
-    public class Class1
+    public class BillDAO
     {
+
     }
 }
