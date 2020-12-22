@@ -17,7 +17,10 @@ namespace PharmaLog.BO
        // public string DrugPicture { get; set; }
         public int Quantity { get;set; }
         public double UnitPrice { get; set; }
-       //public string PharmacyLogo { get; set; }
+        //public long Contact { get; set; }
+        //public string Email { get; set; }
+        //public DateTime Date { get; set; }
+        //public string PharmacyLogo { get; set; }
 
         public Bill()
         {
@@ -34,6 +37,10 @@ namespace PharmaLog.BO
             //DrugPicture = drugPicture;
             Quantity = quantity;
             UnitPrice = unitPrice;
+            //Contact = contact;
+            //Email = email;
+            //Date = date;
+
            // PharmacyLogo = pharmacyLogo;
         }
 

@@ -16,7 +16,7 @@ namespace WindowsFormsAppPharma
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmBill());
+            Application.Run(new FrmListBill());
         }
     }
 }

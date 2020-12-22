@@ -100,6 +100,7 @@ namespace WindowsFormsAppPharma
                 int.Parse(txtQuan.Text),
                 double.Parse(ComboBoxUnit.Text)
 
+
             );
                 BillBLO billBLO = new BillBLO(ConfigurationManager.AppSettings["DbFolder"]);
 
