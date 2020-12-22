@@ -14,10 +14,10 @@ namespace PharmaLog.BO
         public string MatDrug  { get; set; }
         public string NameDrug { get; set; }
         public string CategoryDrug { get; set; }
-        public string DrugPicture { get; set; }
+       // public string DrugPicture { get; set; }
         public int Quantity { get;set; }
         public double UnitPrice { get; set; }
-        public string PharmacyLogo { get; set; }
+       //public string PharmacyLogo { get; set; }
 
         public Bill()
         {
@@ -25,16 +25,16 @@ namespace PharmaLog.BO
         }
 
         public Bill(string matDrug, string nameDrug, string categoryDrug,
-            string drugPicture, int quantity, double unitPrice, string pharmacyLogo)
+           int quantity, double unitPrice)
         {
             MatBill = "B"+count;
             MatDrug = matDrug;
             NameDrug = nameDrug;
             CategoryDrug = categoryDrug;
-            DrugPicture = drugPicture;
+            //DrugPicture = drugPicture;
             Quantity = quantity;
             UnitPrice = unitPrice;
-            PharmacyLogo = pharmacyLogo;
+           // PharmacyLogo = pharmacyLogo;
         }
 
         public override bool Equals(object obj)
