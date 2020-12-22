@@ -15,17 +15,17 @@ namespace PharmaLog.BLL
         {
         }
 
-        public TypingException(List<KeyValuePair<string, string>> messages) : base("")
-        {
-            Errors = messages;
-        }
-        public TypingException(string message) : base(message)
-        {
-        }
+        //public TypingException(List<KeyValuePair<string, string>> messages) : base("")
+        //{
+        //    Errors = messages;
+        //}
+        //public TypingException(string message) : base(message)
+        //{
+        //}
 
-        public TypingException(string message, Exception innerException) : base(message, innerException)
-        {
-        }
+        //public TypingException(string message, Exception innerException) : base(message, innerException)
+        //{
+        //}
 
 
 
