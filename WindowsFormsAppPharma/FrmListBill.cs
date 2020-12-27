@@ -19,8 +19,11 @@ namespace WindowsFormsAppPharma
         public FrmListBill()
         {
             InitializeComponent();
-            DataGridViewList.AutoGenerateColumns = false;
+
+
+            dataGridViewBill.AutoGenerateColumns = false;
             billBLO = new BillBLO(ConfigurationManager.AppSettings["DbFolder"]);
+            
         }
         private void loadData()
         {
@@ -28,12 +31,14 @@ namespace WindowsFormsAppPharma
             var bills = billBLO.GetBy
                 (
                 x =>
-                x.MatBill.ToLower().Contains(value) ||
-                x.MatDrug.ToLower().Contains(value)
+               x.MatBill.ToLower().Contains(value)||
+                x.NameDrug.ToLower().Contains(value)
                 ).OrderBy(x => x.MatBill).ToArray();
-            DataGridViewList.DataSource = null;
-            DataGridViewList.DataSource = bills;
-            DataGridViewList.ClearSelection();
+           
+            dataGridViewBill.DataSource = null;
+            dataGridViewBill.DataSource = bills;
+            lblCount.Text = $"{ dataGridViewBill.RowCount} rows";
+            dataGridViewBill.ClearSelection();
         }
         private void BtnCancel_Click(object sender, EventArgs e)
         {
@@ -44,25 +49,29 @@ namespace WindowsFormsAppPharma
         {
 
         }
+         private void RefreshGridOnFormChildClose(object sender, FormClosedEventArgs e)
+        {
+            loadData();
+        }
 
         private void BtnPrint_Click(object sender, EventArgs e)
         {
              List<BillPrint> items = new List<BillPrint>();
             // Pharmacy pharmacy = pharmacyBLO.GetPharmacy();
-            for (int i = 0; i < DataGridViewList.Rows.Count; i++)
+            for (int i = 0; i < dataGridViewBill.Rows.Count; i++)
             {
-                BillPrint d = DataGridViewList.Rows[i].DataBoundItem as BillPrint;
+                Bill d = dataGridViewBill.Rows[i].DataBoundItem as Bill;
                 items.Add(
                     new BillPrint(
                         d.MatBill,
-                        d.MatDrug,
                         d.NameDrug,
                         d.CategoryDrug,
                         d.Quantity,
                         d.UnitPrice,
-                        d.Contact,
-                        d.Email,
-                        d.Date
+                        d.Contacts,
+                       // d.Email,
+                        d.Date,
+                        d.AmountPaid
                       //   !string.IsNullOrEmpty(pharmacy?.Logo) ? File.ReadAllBytes(pharmacy?.Logo) : null
                       )
                     ) ;
@@ -73,15 +82,16 @@ namespace WindowsFormsAppPharma
 
         private void BtnModify_Click(object sender, EventArgs e)
         {
-            if (DataGridViewList.SelectedRows.Count > 0)
+            if (dataGridViewBill.SelectedRows.Count > 0)
             {
-                for (int i = 0; i < DataGridViewList.SelectedRows.Count; i++)
+                for (int i = 0; i < dataGridViewBill.SelectedRows.Count; i++)
                 {
                     Form f = new FrmBill
                         (
-                        DataGridViewList.SelectedRows[i].DataBoundItem as Bill,
+                         dataGridViewBill.SelectedRows[i].DataBoundItem as Bill,
                         loadData
                         );
+                     f.ShowDialog();
                     this.Hide();
                     f.Show();
                     f.WindowState = FormWindowState.Maximized;
@@ -91,13 +101,16 @@ namespace WindowsFormsAppPharma
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            Form f = new FrmBill();
+            Form f = new FrmBill(loadData);
             f.Show();
+            f.FormClosed += new FormClosedEventHandler(RefreshGridOnFormChildClose);
         }
 
         private void FrmListBill_Load(object sender, EventArgs e)
         {
             loadData();
+            ////timer2.Start();
+            ////timer2.Enabled = true;
         }
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
@@ -111,12 +124,12 @@ namespace WindowsFormsAppPharma
             if (string.IsNullOrEmpty(TxtSearch.Text))
                 loadData();
             else
-                TxtSearch.Clear();
+               TxtSearch.Clear();
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            if (DataGridViewList.SelectedRows.Count > 0)
+            if (dataGridViewBill.SelectedRows.Count > 0)
             {
                 if (
                     MessageBox.Show(
@@ -127,9 +140,9 @@ namespace WindowsFormsAppPharma
                         ) == DialogResult.Yes
                     )
                 {
-                    for (int i = 0; i < DataGridViewList.SelectedRows.Count; i++)
+                    for (int i = 0; i < dataGridViewBill.SelectedRows.Count; i++)
                     {
-                        billBLO.DeleteBill(DataGridViewList.SelectedRows[i].DataBoundItem as Bill);
+                        billBLO.DeleteBill(dataGridViewBill.SelectedRows[i].DataBoundItem as Bill);
                     }
                     loadData();
                 }
@@ -139,6 +152,11 @@ namespace WindowsFormsAppPharma
         private void DataGridViewList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             BtnModify_Click(sender, e);
+        }
+
+        private void dataGridViewBill_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

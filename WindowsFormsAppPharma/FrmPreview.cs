@@ -41,5 +41,10 @@ namespace WindowsFormsAppPharma
             this.reportPath = reportPath;
             this.items = items;
         }
+
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

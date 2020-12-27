@@ -11,8 +11,11 @@ namespace PharmaLog.BLL
     {
 
         public List<KeyValuePair<string, string>> Errors { get; private set; }
-       
 
+        public TypingException() : base()
+        {
+
+        }
         public TypingException(string message) : base(message)
         {
 

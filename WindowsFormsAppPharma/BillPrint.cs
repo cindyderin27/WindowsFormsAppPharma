@@ -8,38 +8,40 @@ namespace WindowsFormsAppPharma
 {
    public  class BillPrint
     {
-        public string MatBill { get; private set; }
-        public string MatDrug { get; set; }
+       
+        public string MatBill { get; set; }
+       
         public string NameDrug { get; set; }
         public string CategoryDrug { get; set; }
         //public string DrugPicture { get; set; }
         public int Quantity { get; set; }
         public double UnitPrice { get; set; }
        //public string PharmacyLogo { get; set; }
-        public long Contact { get; set; }
-        public string Email { get; set; }
+        public long Contacts { get; set; }
+      //  public string Email { get; set; }
         public DateTime Date { get; set; }
+        public double AmountPaid { get; set; }
 
         public BillPrint()
         {
         }
 
-        public BillPrint(string matBill, string matDrug, string nameDrug, 
+        public BillPrint(string matBill, string nameDrug, 
                         string categoryDrug, int quantity, 
                         double unitPrice, 
-                         long contact, string email, DateTime date)
+                         long contact, DateTime date, double amountPaid)
         {
             MatBill = matBill;
-            MatDrug = matDrug;
             NameDrug = nameDrug;
             CategoryDrug = categoryDrug;
            // DrugPicture = drugPicture;
             Quantity = quantity;
             UnitPrice = unitPrice;
            // PharmacyLogo = pharmacyLogo;
-            Contact = contact;
-            Email = email;
+            Contacts = contact;
+           // Email = email;
             Date = date;
+            AmountPaid = amountPaid;
         }
 
         public override bool Equals(object obj)

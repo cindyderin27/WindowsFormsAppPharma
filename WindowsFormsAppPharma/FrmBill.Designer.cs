@@ -30,30 +30,26 @@
         {
             this.components = new System.ComponentModel.Container();
             this.guna2HtmlNumFact = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLNumProd = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlDrugName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlQuan = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlUnit = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlCat = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlPict = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLogo = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.lblDate = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.DateTimePickerDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.ComboBoxContact = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2HtmlCON = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtQuan = new Guna.UI2.WinForms.Guna2TextBox();
             this.ComboBoxUnit = new Guna.UI2.WinForms.Guna2ComboBox();
             this.ComboBoxCat = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtNumFact = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtNumDrug = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtNameDrug = new Guna.UI2.WinForms.Guna2TextBox();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.guna2CircleLogo = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2BtnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.guna2BtnSave = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2CirclePictureDrug = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.txtMontant = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CircleLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureDrug)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2HtmlNumFact
@@ -65,22 +61,13 @@
             this.guna2HtmlNumFact.Size = new System.Drawing.Size(88, 22);
             this.guna2HtmlNumFact.TabIndex = 0;
             this.guna2HtmlNumFact.Text = "N° Facture";
-            // 
-            // guna2HtmlLNumProd
-            // 
-            this.guna2HtmlLNumProd.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLNumProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLNumProd.Location = new System.Drawing.Point(308, 180);
-            this.guna2HtmlLNumProd.Name = "guna2HtmlLNumProd";
-            this.guna2HtmlLNumProd.Size = new System.Drawing.Size(83, 22);
-            this.guna2HtmlLNumProd.TabIndex = 1;
-            this.guna2HtmlLNumProd.Text = "N° Produit";
+            this.guna2HtmlNumFact.Click += new System.EventHandler(this.guna2HtmlNumFact_Click);
             // 
             // guna2HtmlDrugName
             // 
             this.guna2HtmlDrugName.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlDrugName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlDrugName.Location = new System.Drawing.Point(308, 261);
+            this.guna2HtmlDrugName.Location = new System.Drawing.Point(319, 180);
             this.guna2HtmlDrugName.Name = "guna2HtmlDrugName";
             this.guna2HtmlDrugName.Size = new System.Drawing.Size(106, 22);
             this.guna2HtmlDrugName.TabIndex = 2;
@@ -90,7 +77,7 @@
             // 
             this.guna2HtmlQuan.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlQuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlQuan.Location = new System.Drawing.Point(308, 396);
+            this.guna2HtmlQuan.Location = new System.Drawing.Point(21, 339);
             this.guna2HtmlQuan.Name = "guna2HtmlQuan";
             this.guna2HtmlQuan.Size = new System.Drawing.Size(70, 22);
             this.guna2HtmlQuan.TabIndex = 3;
@@ -101,7 +88,7 @@
             // 
             this.guna2HtmlUnit.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlUnit.Location = new System.Drawing.Point(667, 386);
+            this.guna2HtmlUnit.Location = new System.Drawing.Point(334, 246);
             this.guna2HtmlUnit.Name = "guna2HtmlUnit";
             this.guna2HtmlUnit.Size = new System.Drawing.Size(76, 22);
             this.guna2HtmlUnit.TabIndex = 4;
@@ -111,31 +98,12 @@
             // 
             this.guna2HtmlCat.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlCat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlCat.Location = new System.Drawing.Point(308, 321);
+            this.guna2HtmlCat.Location = new System.Drawing.Point(13, 269);
             this.guna2HtmlCat.Name = "guna2HtmlCat";
             this.guna2HtmlCat.Size = new System.Drawing.Size(75, 22);
             this.guna2HtmlCat.TabIndex = 5;
             this.guna2HtmlCat.Text = "Category";
-            // 
-            // guna2HtmlPict
-            // 
-            this.guna2HtmlPict.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlPict.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlPict.Location = new System.Drawing.Point(777, 63);
-            this.guna2HtmlPict.Name = "guna2HtmlPict";
-            this.guna2HtmlPict.Size = new System.Drawing.Size(59, 22);
-            this.guna2HtmlPict.TabIndex = 6;
-            this.guna2HtmlPict.Text = "Picture";
-            // 
-            // guna2HtmlLogo
-            // 
-            this.guna2HtmlLogo.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLogo.Location = new System.Drawing.Point(14, 63);
-            this.guna2HtmlLogo.Name = "guna2HtmlLogo";
-            this.guna2HtmlLogo.Size = new System.Drawing.Size(43, 22);
-            this.guna2HtmlLogo.TabIndex = 7;
-            this.guna2HtmlLogo.Text = "Logo";
+            this.guna2HtmlCat.Click += new System.EventHandler(this.guna2HtmlCat_Click);
             // 
             // guna2GroupBox1
             // 
@@ -143,26 +111,24 @@
             this.guna2GroupBox1.BorderColor = System.Drawing.Color.White;
             this.guna2GroupBox1.BorderRadius = 50;
             this.guna2GroupBox1.CausesValidation = false;
+            this.guna2GroupBox1.Controls.Add(this.txtMontant);
+            this.guna2GroupBox1.Controls.Add(this.guna2HtmlLabel1);
+            this.guna2GroupBox1.Controls.Add(this.lblDate);
+            this.guna2GroupBox1.Controls.Add(this.DateTimePickerDate);
+            this.guna2GroupBox1.Controls.Add(this.ComboBoxContact);
+            this.guna2GroupBox1.Controls.Add(this.guna2HtmlCON);
             this.guna2GroupBox1.Controls.Add(this.txtQuan);
             this.guna2GroupBox1.Controls.Add(this.ComboBoxUnit);
             this.guna2GroupBox1.Controls.Add(this.ComboBoxCat);
             this.guna2GroupBox1.Controls.Add(this.txtNumFact);
-            this.guna2GroupBox1.Controls.Add(this.txtNumDrug);
             this.guna2GroupBox1.Controls.Add(this.txtNameDrug);
-            this.guna2GroupBox1.Controls.Add(this.linkLabel2);
-            this.guna2GroupBox1.Controls.Add(this.linkLabel1);
-            this.guna2GroupBox1.Controls.Add(this.guna2CircleLogo);
             this.guna2GroupBox1.Controls.Add(this.guna2BtnCancel);
             this.guna2GroupBox1.Controls.Add(this.guna2BtnSave);
-            this.guna2GroupBox1.Controls.Add(this.guna2CirclePictureDrug);
             this.guna2GroupBox1.Controls.Add(this.guna2HtmlNumFact);
             this.guna2GroupBox1.Controls.Add(this.guna2HtmlUnit);
             this.guna2GroupBox1.Controls.Add(this.guna2HtmlCat);
             this.guna2GroupBox1.Controls.Add(this.guna2HtmlQuan);
-            this.guna2GroupBox1.Controls.Add(this.guna2HtmlLogo);
             this.guna2GroupBox1.Controls.Add(this.guna2HtmlDrugName);
-            this.guna2GroupBox1.Controls.Add(this.guna2HtmlLNumProd);
-            this.guna2GroupBox1.Controls.Add(this.guna2HtmlPict);
             this.guna2GroupBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
@@ -174,6 +140,66 @@
             this.guna2GroupBox1.Text = "Bill";
             this.guna2GroupBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.guna2GroupBox1.Click += new System.EventHandler(this.guna2GroupBox1_Click);
+            // 
+            // lblDate
+            // 
+            this.lblDate.BackColor = System.Drawing.Color.Transparent;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(368, 320);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(42, 22);
+            this.lblDate.TabIndex = 13;
+            this.lblDate.Text = "Date";
+            // 
+            // DateTimePickerDate
+            // 
+            this.DateTimePickerDate.CheckedState.Parent = this.DateTimePickerDate;
+            this.DateTimePickerDate.FillColor = System.Drawing.Color.ForestGreen;
+            this.DateTimePickerDate.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.DateTimePickerDate.ForeColor = System.Drawing.Color.White;
+            this.DateTimePickerDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.DateTimePickerDate.HoverState.Parent = this.DateTimePickerDate;
+            this.DateTimePickerDate.Location = new System.Drawing.Point(368, 357);
+            this.DateTimePickerDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.DateTimePickerDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.DateTimePickerDate.Name = "DateTimePickerDate";
+            this.DateTimePickerDate.ShadowDecoration.Parent = this.DateTimePickerDate;
+            this.DateTimePickerDate.Size = new System.Drawing.Size(210, 36);
+            this.DateTimePickerDate.TabIndex = 7;
+            this.DateTimePickerDate.Value = new System.DateTime(2020, 12, 24, 13, 42, 38, 49);
+            // 
+            // ComboBoxContact
+            // 
+            this.ComboBoxContact.BackColor = System.Drawing.Color.Transparent;
+            this.ComboBoxContact.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ComboBoxContact.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxContact.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ComboBoxContact.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ComboBoxContact.FocusedState.Parent = this.ComboBoxContact;
+            this.ComboBoxContact.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.ComboBoxContact.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.ComboBoxContact.HoverState.Parent = this.ComboBoxContact;
+            this.ComboBoxContact.ItemHeight = 30;
+            this.ComboBoxContact.Items.AddRange(new object[] {
+            "699999999",
+            "677231425",
+            "690123628"});
+            this.ComboBoxContact.ItemsAppearance.Parent = this.ComboBoxContact;
+            this.ComboBoxContact.Location = new System.Drawing.Point(128, 92);
+            this.ComboBoxContact.Name = "ComboBoxContact";
+            this.ComboBoxContact.ShadowDecoration.Parent = this.ComboBoxContact;
+            this.ComboBoxContact.Size = new System.Drawing.Size(172, 36);
+            this.ComboBoxContact.TabIndex = 8;
+            // 
+            // guna2HtmlCON
+            // 
+            this.guna2HtmlCON.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlCON.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlCON.Location = new System.Drawing.Point(13, 91);
+            this.guna2HtmlCON.Name = "guna2HtmlCON";
+            this.guna2HtmlCON.Size = new System.Drawing.Size(66, 22);
+            this.guna2HtmlCON.TabIndex = 9;
+            this.guna2HtmlCON.Text = "Contact";
             // 
             // txtQuan
             // 
@@ -189,14 +215,15 @@
             this.txtQuan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtQuan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtQuan.HoverState.Parent = this.txtQuan;
-            this.txtQuan.Location = new System.Drawing.Point(415, 396);
+            this.txtQuan.Location = new System.Drawing.Point(128, 339);
             this.txtQuan.Name = "txtQuan";
             this.txtQuan.PasswordChar = '\0';
             this.txtQuan.PlaceholderText = "";
             this.txtQuan.SelectedText = "";
             this.txtQuan.ShadowDecoration.Parent = this.txtQuan;
-            this.txtQuan.Size = new System.Drawing.Size(219, 36);
-            this.txtQuan.TabIndex = 20;
+            this.txtQuan.Size = new System.Drawing.Size(172, 36);
+            this.txtQuan.TabIndex = 4;
+            this.txtQuan.TextChanged += new System.EventHandler(this.txtQuan_TextChanged);
             // 
             // ComboBoxUnit
             // 
@@ -210,12 +237,15 @@
             this.ComboBoxUnit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.ComboBoxUnit.HoverState.Parent = this.ComboBoxUnit;
             this.ComboBoxUnit.ItemHeight = 30;
+            this.ComboBoxUnit.Items.AddRange(new object[] {
+            "1000",
+            "2000"});
             this.ComboBoxUnit.ItemsAppearance.Parent = this.ComboBoxUnit;
-            this.ComboBoxUnit.Location = new System.Drawing.Point(781, 386);
+            this.ComboBoxUnit.Location = new System.Drawing.Point(448, 246);
             this.ComboBoxUnit.Name = "ComboBoxUnit";
             this.ComboBoxUnit.ShadowDecoration.Parent = this.ComboBoxUnit;
-            this.ComboBoxUnit.Size = new System.Drawing.Size(140, 36);
-            this.ComboBoxUnit.TabIndex = 19;
+            this.ComboBoxUnit.Size = new System.Drawing.Size(197, 36);
+            this.ComboBoxUnit.TabIndex = 5;
             this.ComboBoxUnit.SelectedIndexChanged += new System.EventHandler(this.ComboBoxUnit_SelectedIndexChanged);
             // 
             // ComboBoxCat
@@ -230,12 +260,16 @@
             this.ComboBoxCat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.ComboBoxCat.HoverState.Parent = this.ComboBoxCat;
             this.ComboBoxCat.ItemHeight = 30;
+            this.ComboBoxCat.Items.AddRange(new object[] {
+            "Oral Drug\'s",
+            "Solutions"});
             this.ComboBoxCat.ItemsAppearance.Parent = this.ComboBoxCat;
-            this.ComboBoxCat.Location = new System.Drawing.Point(434, 307);
+            this.ComboBoxCat.Location = new System.Drawing.Point(128, 255);
             this.ComboBoxCat.Name = "ComboBoxCat";
             this.ComboBoxCat.ShadowDecoration.Parent = this.ComboBoxCat;
-            this.ComboBoxCat.Size = new System.Drawing.Size(200, 36);
-            this.ComboBoxCat.TabIndex = 18;
+            this.ComboBoxCat.Size = new System.Drawing.Size(172, 36);
+            this.ComboBoxCat.TabIndex = 3;
+            this.ComboBoxCat.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCat_SelectedIndexChanged);
             // 
             // txtNumFact
             // 
@@ -258,30 +292,8 @@
             this.txtNumFact.SelectedText = "";
             this.txtNumFact.ShadowDecoration.Parent = this.txtNumFact;
             this.txtNumFact.Size = new System.Drawing.Size(200, 36);
-            this.txtNumFact.TabIndex = 17;
-            // 
-            // txtNumDrug
-            // 
-            this.txtNumDrug.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNumDrug.DefaultText = "";
-            this.txtNumDrug.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtNumDrug.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtNumDrug.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNumDrug.DisabledState.Parent = this.txtNumDrug;
-            this.txtNumDrug.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNumDrug.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNumDrug.FocusedState.Parent = this.txtNumDrug;
-            this.txtNumDrug.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtNumDrug.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNumDrug.HoverState.Parent = this.txtNumDrug;
-            this.txtNumDrug.Location = new System.Drawing.Point(434, 166);
-            this.txtNumDrug.Name = "txtNumDrug";
-            this.txtNumDrug.PasswordChar = '\0';
-            this.txtNumDrug.PlaceholderText = "";
-            this.txtNumDrug.SelectedText = "";
-            this.txtNumDrug.ShadowDecoration.Parent = this.txtNumDrug;
-            this.txtNumDrug.Size = new System.Drawing.Size(200, 36);
-            this.txtNumDrug.TabIndex = 16;
+            this.txtNumFact.TabIndex = 0;
+            this.txtNumFact.TextChanged += new System.EventHandler(this.txtNumFact_TextChanged);
             // 
             // txtNameDrug
             // 
@@ -297,51 +309,14 @@
             this.txtNameDrug.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNameDrug.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNameDrug.HoverState.Parent = this.txtNameDrug;
-            this.txtNameDrug.Location = new System.Drawing.Point(434, 247);
+            this.txtNameDrug.Location = new System.Drawing.Point(445, 166);
             this.txtNameDrug.Name = "txtNameDrug";
             this.txtNameDrug.PasswordChar = '\0';
             this.txtNameDrug.PlaceholderText = "";
             this.txtNameDrug.SelectedText = "";
             this.txtNameDrug.ShadowDecoration.Parent = this.txtNameDrug;
             this.txtNameDrug.Size = new System.Drawing.Size(200, 36);
-            this.txtNameDrug.TabIndex = 15;
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel2.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.linkLabel2.Location = new System.Drawing.Point(894, 64);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(20, 21);
-            this.linkLabel2.TabIndex = 13;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "X";
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.linkLabel1.Location = new System.Drawing.Point(154, 67);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(20, 21);
-            this.linkLabel1.TabIndex = 12;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "X";
-            // 
-            // guna2CircleLogo
-            // 
-            this.guna2CircleLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.guna2CircleLogo.ImageRotate = 10F;
-            this.guna2CircleLogo.Location = new System.Drawing.Point(14, 91);
-            this.guna2CircleLogo.Name = "guna2CircleLogo";
-            this.guna2CircleLogo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleLogo.ShadowDecoration.Parent = this.guna2CircleLogo;
-            this.guna2CircleLogo.Size = new System.Drawing.Size(160, 143);
-            this.guna2CircleLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2CircleLogo.TabIndex = 11;
-            this.guna2CircleLogo.TabStop = false;
+            this.txtNameDrug.TabIndex = 2;
             // 
             // guna2BtnCancel
             // 
@@ -353,11 +328,11 @@
             this.guna2BtnCancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.guna2BtnCancel.ForeColor = System.Drawing.Color.White;
             this.guna2BtnCancel.HoverState.Parent = this.guna2BtnCancel;
-            this.guna2BtnCancel.Location = new System.Drawing.Point(20, 373);
+            this.guna2BtnCancel.Location = new System.Drawing.Point(785, 214);
             this.guna2BtnCancel.Name = "guna2BtnCancel";
             this.guna2BtnCancel.ShadowDecoration.Parent = this.guna2BtnCancel;
             this.guna2BtnCancel.Size = new System.Drawing.Size(112, 45);
-            this.guna2BtnCancel.TabIndex = 10;
+            this.guna2BtnCancel.TabIndex = 11;
             this.guna2BtnCancel.Text = "Cancel";
             this.guna2BtnCancel.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
@@ -368,34 +343,56 @@
             this.guna2BtnSave.CheckedState.Parent = this.guna2BtnSave;
             this.guna2BtnSave.CustomImages.Parent = this.guna2BtnSave;
             this.guna2BtnSave.FillColor = System.Drawing.Color.Green;
-            this.guna2BtnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2BtnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.guna2BtnSave.ForeColor = System.Drawing.Color.White;
             this.guna2BtnSave.HoverState.Parent = this.guna2BtnSave;
-            this.guna2BtnSave.Location = new System.Drawing.Point(20, 284);
+            this.guna2BtnSave.Location = new System.Drawing.Point(785, 112);
             this.guna2BtnSave.Name = "guna2BtnSave";
             this.guna2BtnSave.ShadowDecoration.Parent = this.guna2BtnSave;
             this.guna2BtnSave.Size = new System.Drawing.Size(112, 45);
-            this.guna2BtnSave.TabIndex = 9;
+            this.guna2BtnSave.TabIndex = 10;
             this.guna2BtnSave.Text = "Save";
             this.guna2BtnSave.Click += new System.EventHandler(this.guna2BtnSave_Click);
-            // 
-            // guna2CirclePictureDrug
-            // 
-            this.guna2CirclePictureDrug.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.guna2CirclePictureDrug.ImageRotate = 10F;
-            this.guna2CirclePictureDrug.Location = new System.Drawing.Point(777, 92);
-            this.guna2CirclePictureDrug.Name = "guna2CirclePictureDrug";
-            this.guna2CirclePictureDrug.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureDrug.ShadowDecoration.Parent = this.guna2CirclePictureDrug;
-            this.guna2CirclePictureDrug.Size = new System.Drawing.Size(137, 141);
-            this.guna2CirclePictureDrug.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2CirclePictureDrug.TabIndex = 8;
-            this.guna2CirclePictureDrug.TabStop = false;
             // 
             // timer1
             // 
             this.timer1.Interval = 3000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // txtMontant
+            // 
+            this.txtMontant.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMontant.DefaultText = "";
+            this.txtMontant.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtMontant.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtMontant.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMontant.DisabledState.Parent = this.txtMontant;
+            this.txtMontant.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMontant.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMontant.FocusedState.Parent = this.txtMontant;
+            this.txtMontant.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtMontant.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMontant.HoverState.Parent = this.txtMontant;
+            this.txtMontant.Location = new System.Drawing.Point(128, 180);
+            this.txtMontant.Name = "txtMontant";
+            this.txtMontant.PasswordChar = '\0';
+            this.txtMontant.PlaceholderText = "";
+            this.txtMontant.SelectedText = "";
+            this.txtMontant.ShadowDecoration.Parent = this.txtMontant;
+            this.txtMontant.Size = new System.Drawing.Size(172, 34);
+            this.txtMontant.TabIndex = 9;
+            this.txtMontant.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(12, 180);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(104, 22);
+            this.guna2HtmlLabel1.TabIndex = 15;
+            this.guna2HtmlLabel1.Text = "Amount paid";
+            this.guna2HtmlLabel1.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
             // 
             // FrmBill
             // 
@@ -409,8 +406,6 @@
             this.Load += new System.EventHandler(this.FrmBill_Load);
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CircleLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureDrug)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -418,26 +413,24 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlNumFact;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLNumProd;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlDrugName;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlQuan;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlUnit;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlCat;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlPict;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLogo;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureDrug;
         private Guna.UI2.WinForms.Guna2Button guna2BtnCancel;
         private Guna.UI2.WinForms.Guna2Button guna2BtnSave;
         private Guna.UI2.WinForms.Guna2TextBox txtQuan;
         private Guna.UI2.WinForms.Guna2ComboBox ComboBoxUnit;
         private Guna.UI2.WinForms.Guna2ComboBox ComboBoxCat;
         private Guna.UI2.WinForms.Guna2TextBox txtNumFact;
-        private Guna.UI2.WinForms.Guna2TextBox txtNumDrug;
         private Guna.UI2.WinForms.Guna2TextBox txtNameDrug;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CircleLogo;
         private System.Windows.Forms.Timer timer1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblDate;
+        private Guna.UI2.WinForms.Guna2DateTimePicker DateTimePickerDate;
+        private Guna.UI2.WinForms.Guna2ComboBox ComboBoxContact;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlCON;
+        private Guna.UI2.WinForms.Guna2TextBox txtMontant;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
     }
 }

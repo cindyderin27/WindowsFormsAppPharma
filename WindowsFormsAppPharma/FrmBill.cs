@@ -17,42 +17,41 @@ namespace WindowsFormsAppPharma
     {
         private Action callBack;
         private Bill oldbill;
-        private BillBLO billBLO;
+        
         public FrmBill()
         {
             InitializeComponent();
-            billBLO = new BillBLO(ConfigurationManager.AppSettings["DbFolder"]);
-            //  pharmacyBLO = new PharmacyBLO(ConfigurationManager.AppSettings["DbFolder"]);
+           
         }
 
         public FrmBill(Action callback) : this()
         {
-            this.callBack = callBack;
+            this.callBack = callback;
         }
         public FrmBill(Bill bill, Action callback) : this(callback)
         {
             this.oldbill = bill;
             txtNumFact.Text = bill.MatBill;
-            txtNumDrug.Text = bill.MatDrug;
             txtNameDrug.Text = bill.NameDrug;
             ComboBoxCat.Text = bill.CategoryDrug;
-            double.Parse(ComboBoxUnit.Text);
-            int.Parse(ComboBoxUnit.Text);
-
-
-
-
+           ComboBoxUnit.Text=bill.UnitPrice.ToString();
+           txtQuan.Text=bill.Quantity.ToString();
+            ComboBoxContact.Text = bill.Contacts.ToString();
+           // guna2ComboBoxEmail.Text = bill.Email.ToString();
+            DateTimePickerDate.Text = bill.Date.ToString();
+            txtMontant.Text = bill.AmountPaid.ToString();
 
         }
+       
         private void checkForm()
         {
             string text = string.Empty;
             txtNumFact.BackColor = Color.White;
             txtNameDrug.BackColor = Color.White;
-            if (string.IsNullOrWhiteSpace(txtNumFact.Text))
+           if (string.IsNullOrWhiteSpace(txtNumFact.Text))
             {
-                text += "- Please enter the Reference Bill! \n";
-                txtNumFact.BackColor = Color.Red;
+             text += "- Please enter the Reference Bill! \n";
+              txtNumFact.BackColor = Color.Red;
 
             }
             if (string.IsNullOrWhiteSpace(txtNameDrug.Text))
@@ -73,8 +72,8 @@ namespace WindowsFormsAppPharma
 
         private void FrmBill_Load(object sender, EventArgs e)
         {
-            timer1.Start();
-            timer1.Enabled = true;
+        //    timer1.Start();
+        //    timer1.Enabled = true;
         }
 
         private void guna2GroupBox1_Click(object sender, EventArgs e)
@@ -93,13 +92,15 @@ namespace WindowsFormsAppPharma
             {
                 checkForm();
                 Bill newBill = new Bill(
-
-                txtNumDrug.Text.ToUpper(),
+                txtNumFact.Text.ToUpper(),
                 txtNameDrug.Text.ToUpper(),
                 ComboBoxCat.Text.ToUpper(),
                 int.Parse(txtQuan.Text),
-                double.Parse(ComboBoxUnit.Text)
-
+                double.Parse(ComboBoxUnit.Text),
+               long.Parse(ComboBoxContact.Text),
+              // guna2ComboBoxEmail.Text,
+               DateTime.Parse(DateTimePickerDate.Text),
+               double.Parse(txtMontant.Text)
 
             );
                 BillBLO billBLO = new BillBLO(ConfigurationManager.AppSettings["DbFolder"]);
@@ -122,12 +123,17 @@ namespace WindowsFormsAppPharma
                 if (oldbill != null)
                     Close();
                 txtNumFact.Clear();
-                txtNumDrug.Clear();
+               
                 txtNameDrug.Clear();
                 txtQuan.Clear();
                 ComboBoxCat.SelectedValue = null;
-                ComboBoxUnit.SelectedValue = 0;
+                ComboBoxUnit.SelectedValue =null;
+                ComboBoxContact.SelectedValue = null;
+               // guna2ComboBoxEmail.SelectedValue = null;
+                DateTimePickerDate.Refresh();
                 txtNumFact.Focus();
+                txtMontant.Clear();
+                
             }
             catch (DuplicateNameException ex)
             {
@@ -177,7 +183,7 @@ namespace WindowsFormsAppPharma
             }
 
 
-
+           
 
 
         }
@@ -194,6 +200,41 @@ namespace WindowsFormsAppPharma
         }
 
         private void ComboBoxUnit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNumFact_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlNumFact_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlCat_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ComboBoxCat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtQuan_TextChanged(object sender, EventArgs e)
         {
 
         }
