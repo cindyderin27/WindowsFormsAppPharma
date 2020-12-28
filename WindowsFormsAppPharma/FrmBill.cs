@@ -17,10 +17,12 @@ namespace WindowsFormsAppPharma
     {
         private Action callBack;
         private Bill oldbill;
-        
+        private BillBLO billBLO;
         public FrmBill()
         {
             InitializeComponent();
+            //dataGridViewBill.AutoGenerateColumns = false;
+            billBLO = new BillBLO(ConfigurationManager.AppSettings["DbFolder"]);
            
         }
 
@@ -42,27 +44,19 @@ namespace WindowsFormsAppPharma
             txtMontant.Text = bill.AmountPaid.ToString();
 
         }
-       
-        private void checkForm()
+        private void loadData()
         {
-            string text = string.Empty;
-            txtNumFact.BackColor = Color.White;
-            txtNameDrug.BackColor = Color.White;
-           if (string.IsNullOrWhiteSpace(txtNumFact.Text))
-            {
-             text += "- Please enter the Reference Bill! \n";
-              txtNumFact.BackColor = Color.Red;
-
-            }
-            if (string.IsNullOrWhiteSpace(txtNameDrug.Text))
-            {
-                text += "- please enter the Drug's Name! \n";
-                txtNameDrug.BackColor = Color.Red;
-            }
-            if (!string.IsNullOrEmpty(text))
-            {
-                throw new TypingException(text);
-            }
+            string value = TxtSearch.Text.ToLower();
+            var bills = billBLO.GetBy
+                (
+                x =>
+               x.MatBill.ToLower().Contains(value) ||
+                x.NameDrug.ToLower().Contains(value)
+                ).OrderBy(x => x.MatBill).ToArray();
+            dataGridViewBill.DataSource = null;
+            dataGridViewBill.DataSource = bills;
+            lblCount.Text = $"{ dataGridViewBill.RowCount} rows";
+            dataGridViewBill.ClearSelection();
         }
 
         private void guna2HtmlLabel3_Click(object sender, EventArgs e)
@@ -72,8 +66,9 @@ namespace WindowsFormsAppPharma
 
         private void FrmBill_Load(object sender, EventArgs e)
         {
-        //    timer1.Start();
-        //    timer1.Enabled = true;
+            loadData();
+          timer1.Start();
+          timer1.Enabled = true;
         }
 
         private void guna2GroupBox1_Click(object sender, EventArgs e)
@@ -109,7 +104,7 @@ namespace WindowsFormsAppPharma
                     billBLO.CreateBill(newBill);
                 else
                     billBLO.EditBill(oldbill, newBill);
-
+               
                 MessageBox.Show
                     (
                         "Save done !",
@@ -181,11 +176,30 @@ namespace WindowsFormsAppPharma
                    MessageBoxIcon.Error
                );
             }
+            loadData();
 
 
-           
+        }
+        private void checkForm()
+        {
+            string text = string.Empty;
+            txtNumFact.BackColor = Color.White;
+            txtNameDrug.BackColor = Color.White;
+            if (string.IsNullOrWhiteSpace(txtNumFact.Text))
+            {
+                text += "- Please enter the Reference Bill! \n";
+                txtNumFact.BackColor = Color.Red;
 
-
+            }
+            if (string.IsNullOrWhiteSpace(txtNameDrug.Text))
+            {
+                text += "- please enter the Drug's Name! \n";
+                txtNameDrug.BackColor = Color.Red;
+            }
+            if (!string.IsNullOrEmpty(text))
+            {
+                throw new TypingException(text);
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -237,6 +251,101 @@ namespace WindowsFormsAppPharma
         private void txtQuan_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridViewBill_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlCON_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            loadData();
+        }
+
+        private void BtnPrint_Click(object sender, EventArgs e)
+        {
+            List<BillPrint> items = new List<BillPrint>();
+            // Pharmacy pharmacy = pharmacyBLO.GetPharmacy();
+            for (int i = 0; i < dataGridViewBill.Rows.Count; i++)
+            {
+                Bill d = dataGridViewBill.Rows[i].DataBoundItem as Bill;
+                items.Add(
+                    new BillPrint(
+                        d.MatBill,
+                        d.NameDrug,
+                        d.CategoryDrug,
+                        d.Quantity,
+                        d.UnitPrice,
+                        d.Contacts,
+                        // d.Email,
+                        d.Date,
+                        d.AmountPaid
+                      //   !string.IsNullOrEmpty(pharmacy?.Logo) ? File.ReadAllBytes(pharmacy?.Logo) : null
+                      )
+                    );
+            }
+            Form f = new FrmPreview("BillReport.rdlc", items);
+            f.Show();
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewBill.SelectedRows.Count > 0)
+            {
+                if (
+                    MessageBox.Show(
+                        "Do you really want to delete this Bill",
+                        "warning",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question
+                        ) == DialogResult.Yes
+                    )
+                {
+                    for (int i = 0; i < dataGridViewBill.SelectedRows.Count; i++)
+                    {
+                        billBLO.DeleteBill(dataGridViewBill.SelectedRows[i].DataBoundItem as Bill);
+                    }
+                    loadData();
+                }
+            }
+        }
+
+        private void BtnModify_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewBill.SelectedRows.Count > 0)
+            {
+                for (int i = 0; i < dataGridViewBill.SelectedRows.Count; i++)
+                {
+                    Form f = new FrmBill
+                        (
+                         dataGridViewBill.SelectedRows[i].DataBoundItem as Bill,
+                        loadData
+                        );
+                    f.ShowDialog();
+                    this.Hide();
+                    f.Show();
+                    f.WindowState = FormWindowState.Maximized;
+                }
+            }
+        }
+
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(TxtSearch.Text))
+                loadData();
+            else
+                TxtSearch.Clear();
         }
     }
 }

@@ -16,9 +16,7 @@ namespace PharmaLog.BLL
             BillRepo = new BillDAO(dbFolder);
         }
 
-        public BillBLO()
-        {
-        }
+       
 
         public void CreateBill(Bill Bill)
         {

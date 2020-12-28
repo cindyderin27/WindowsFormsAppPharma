@@ -76,9 +76,11 @@
     <Compile Include="BillPrint.cs" />
     <Compile Include="FrmBill.cs">
       <SubType>Form</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="FrmBill.Designer.cs">
       <DependentUpon>FrmBill.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="FrmListBill.cs">
       <SubType>Form</SubType>
@@ -104,6 +106,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBill.resx">
       <DependentUpon>FrmBill.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListBill.resx">
       <DependentUpon>FrmListBill.cs</DependentUpon>
